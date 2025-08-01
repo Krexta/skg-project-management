@@ -17,6 +17,95 @@ type Query implements Node {
     nodeId: ID!
   ): Node
 
+  """
+  Reads and enables pagination through a set of `ConstructionTypeMaster`.
+  """
+  constructionTypeMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ConstructionTypeMaster`."""
+    orderBy: [ConstructionTypeMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ConstructionTypeMasterCondition
+  ): ConstructionTypeMastersConnection
+
+  """Reads and enables pagination through a set of `ConstructionWord`."""
+  constructionWords(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ConstructionWord`."""
+    orderBy: [ConstructionWordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ConstructionWordCondition
+  ): ConstructionWordsConnection
+
+  """Reads and enables pagination through a set of `MaterialMaster`."""
+  materialMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `MaterialMaster`."""
+    orderBy: [MaterialMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MaterialMasterCondition
+  ): MaterialMastersConnection
+
   """Reads and enables pagination through a set of `Project`."""
   projects(
     """Only read the first `n` values of the set."""
@@ -45,13 +134,400 @@ type Query implements Node {
     """
     condition: ProjectCondition
   ): ProjectsConnection
-  project(id: String!): Project
+
+  """
+  Reads and enables pagination through a set of `ProjectConstructionType`.
+  """
+  projectConstructionTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectConstructionType`."""
+    orderBy: [ProjectConstructionTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectConstructionTypeCondition
+  ): ProjectConstructionTypesConnection
+
+  """Reads and enables pagination through a set of `ProjectContractStatus`."""
+  projectContractStatuses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractStatus`."""
+    orderBy: [ProjectContractStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractStatusCondition
+  ): ProjectContractStatusesConnection
+
+  """
+  Reads and enables pagination through a set of `ProjectContractStatusSeqMaster`.
+  """
+  projectContractStatusSeqMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractStatusSeqMaster`."""
+    orderBy: [ProjectContractStatusSeqMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractStatusSeqMasterCondition
+  ): ProjectContractStatusSeqMastersConnection
+
+  """
+  Reads and enables pagination through a set of `ProjectContractTypeMaster`.
+  """
+  projectContractTypeMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractTypeMaster`."""
+    orderBy: [ProjectContractTypeMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractTypeMasterCondition
+  ): ProjectContractTypeMastersConnection
+
+  """Reads and enables pagination through a set of `ProjectMaterial`."""
+  projectMaterials(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectMaterial`."""
+    orderBy: [ProjectMaterialsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMaterialCondition
+  ): ProjectMaterialsConnection
+
+  """Reads and enables pagination through a set of `ProjectMember`."""
+  projectMembers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectMember`."""
+    orderBy: [ProjectMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMemberCondition
+  ): ProjectMembersConnection
+
+  """Reads and enables pagination through a set of `ProjectWorkStatus`."""
+  projectWorkStatuses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkStatus`."""
+    orderBy: [ProjectWorkStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkStatusCondition
+  ): ProjectWorkStatusesConnection
+
+  """
+  Reads and enables pagination through a set of `ProjectWorkStatusSeqMaster`.
+  """
+  projectWorkStatusSeqMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkStatusSeqMaster`."""
+    orderBy: [ProjectWorkStatusSeqMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkStatusSeqMasterCondition
+  ): ProjectWorkStatusSeqMastersConnection
+
+  """Reads and enables pagination through a set of `ProjectWorkTypeMaster`."""
+  projectWorkTypeMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkTypeMaster`."""
+    orderBy: [ProjectWorkTypeMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkTypeMasterCondition
+  ): ProjectWorkTypeMastersConnection
+  constructionTypeMaster(constructionTypeId: UUID!): ConstructionTypeMaster
+  constructionWord(constructionWordId: UUID!): ConstructionWord
+  materialMaster(materialId: UUID!): MaterialMaster
+  project(projectId: UUID!): Project
+  projectConstructionType(projectConstructionTypeId: UUID!): ProjectConstructionType
+  projectContractStatus(projectContractStatusId: UUID!): ProjectContractStatus
+  projectContractStatusSeqMaster(projectContractStatusSeqMasterId: UUID!): ProjectContractStatusSeqMaster
+  projectContractTypeMaster(projectContractTypeMasterId: UUID!): ProjectContractTypeMaster
+  projectMaterial(projectMaterialId: UUID!): ProjectMaterial
+  projectMember(projectBindId: UUID!): ProjectMember
+  projectWorkStatus(projectWorkStatusId: UUID!): ProjectWorkStatus
+  projectWorkStatusSeqMaster(projectStatusSeqMasterId: UUID!): ProjectWorkStatusSeqMaster
+  projectWorkTypeMaster(projectWorkTypeMasterId: UUID!): ProjectWorkTypeMaster
+
+  """
+  Reads a single `ConstructionTypeMaster` using its globally unique `ID`.
+  """
+  constructionTypeMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ConstructionTypeMaster`.
+    """
+    nodeId: ID!
+  ): ConstructionTypeMaster
+
+  """Reads a single `ConstructionWord` using its globally unique `ID`."""
+  constructionWordByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ConstructionWord`.
+    """
+    nodeId: ID!
+  ): ConstructionWord
+
+  """Reads a single `MaterialMaster` using its globally unique `ID`."""
+  materialMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `MaterialMaster`.
+    """
+    nodeId: ID!
+  ): MaterialMaster
 
   """Reads a single `Project` using its globally unique `ID`."""
   projectByNodeId(
     """The globally unique `ID` to be used in selecting a single `Project`."""
     nodeId: ID!
   ): Project
+
+  """
+  Reads a single `ProjectConstructionType` using its globally unique `ID`.
+  """
+  projectConstructionTypeByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectConstructionType`.
+    """
+    nodeId: ID!
+  ): ProjectConstructionType
+
+  """Reads a single `ProjectContractStatus` using its globally unique `ID`."""
+  projectContractStatusByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectContractStatus`.
+    """
+    nodeId: ID!
+  ): ProjectContractStatus
+
+  """
+  Reads a single `ProjectContractStatusSeqMaster` using its globally unique `ID`.
+  """
+  projectContractStatusSeqMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectContractStatusSeqMaster`.
+    """
+    nodeId: ID!
+  ): ProjectContractStatusSeqMaster
+
+  """
+  Reads a single `ProjectContractTypeMaster` using its globally unique `ID`.
+  """
+  projectContractTypeMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectContractTypeMaster`.
+    """
+    nodeId: ID!
+  ): ProjectContractTypeMaster
+
+  """Reads a single `ProjectMaterial` using its globally unique `ID`."""
+  projectMaterialByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectMaterial`.
+    """
+    nodeId: ID!
+  ): ProjectMaterial
+
+  """Reads a single `ProjectMember` using its globally unique `ID`."""
+  projectMemberByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectMember`.
+    """
+    nodeId: ID!
+  ): ProjectMember
+
+  """Reads a single `ProjectWorkStatus` using its globally unique `ID`."""
+  projectWorkStatusByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectWorkStatus`.
+    """
+    nodeId: ID!
+  ): ProjectWorkStatus
+
+  """
+  Reads a single `ProjectWorkStatusSeqMaster` using its globally unique `ID`.
+  """
+  projectWorkStatusSeqMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectWorkStatusSeqMaster`.
+    """
+    nodeId: ID!
+  ): ProjectWorkStatusSeqMaster
+
+  """Reads a single `ProjectWorkTypeMaster` using its globally unique `ID`."""
+  projectWorkTypeMasterByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectWorkTypeMaster`.
+    """
+    nodeId: ID!
+  ): ProjectWorkTypeMaster
 }
 
 """An object with a globally unique `ID`."""
@@ -60,6 +536,403 @@ interface Node {
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
   nodeId: ID!
+}
+
+"""A connection to a list of `ConstructionTypeMaster` values."""
+type ConstructionTypeMastersConnection {
+  """A list of `ConstructionTypeMaster` objects."""
+  nodes: [ConstructionTypeMaster!]!
+
+  """
+  A list of edges which contains the `ConstructionTypeMaster` and cursor to aid in pagination.
+  """
+  edges: [ConstructionTypeMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ConstructionTypeMaster` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ConstructionTypeMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  constructionTypeId: UUID!
+  constructionTypeName: String!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads and enables pagination through a set of `ProjectConstructionType`.
+  """
+  projectConstructionTypesByConstructionTypeId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectConstructionType`."""
+    orderBy: [ProjectConstructionTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectConstructionTypeCondition
+  ): ProjectConstructionTypesConnection!
+}
+
+"""
+A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+"""
+scalar UUID
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""A connection to a list of `ProjectConstructionType` values."""
+type ProjectConstructionTypesConnection {
+  """A list of `ProjectConstructionType` objects."""
+  nodes: [ProjectConstructionType!]!
+
+  """
+  A list of edges which contains the `ProjectConstructionType` and cursor to aid in pagination.
+  """
+  edges: [ProjectConstructionTypesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectConstructionType` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectConstructionType implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectConstructionTypeId: UUID!
+  constructionTypeId: UUID!
+  projectId: UUID!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `ConstructionTypeMaster` that is related to this `ProjectConstructionType`.
+  """
+  constructionType: ConstructionTypeMaster
+
+  """
+  Reads a single `Project` that is related to this `ProjectConstructionType`.
+  """
+  project: Project
+}
+
+type Project implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectId: UUID!
+  projectTypeId: UUID!
+  projectName: String!
+  constructionStart: Datetime!
+  constructionStop: Datetime!
+  budget: BigFloat
+  description: String
+  customerId: UUID!
+  projectContractTypeId: UUID!
+  projectPlaceAddress: String
+  totalManHour: BigFloat
+  createdAt: Datetime!
+  updatedAt: Datetime!
+  createdUserId: UUID!
+
+  """
+  Reads a single `ProjectWorkTypeMaster` that is related to this `Project`.
+  """
+  projectType: ProjectWorkTypeMaster
+
+  """
+  Reads a single `ProjectContractTypeMaster` that is related to this `Project`.
+  """
+  projectContractType: ProjectContractTypeMaster
+
+  """Reads and enables pagination through a set of `ProjectMember`."""
+  projectMembers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectMember`."""
+    orderBy: [ProjectMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMemberCondition
+  ): ProjectMembersConnection!
+
+  """Reads and enables pagination through a set of `ProjectMaterial`."""
+  projectMaterials(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectMaterial`."""
+    orderBy: [ProjectMaterialsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMaterialCondition
+  ): ProjectMaterialsConnection!
+
+  """Reads and enables pagination through a set of `ConstructionWord`."""
+  constructionWords(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ConstructionWord`."""
+    orderBy: [ConstructionWordsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ConstructionWordCondition
+  ): ConstructionWordsConnection!
+
+  """
+  Reads and enables pagination through a set of `ProjectConstructionType`.
+  """
+  projectConstructionTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectConstructionType`."""
+    orderBy: [ProjectConstructionTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectConstructionTypeCondition
+  ): ProjectConstructionTypesConnection!
+
+  """Reads and enables pagination through a set of `ProjectContractStatus`."""
+  projectContractStatuses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractStatus`."""
+    orderBy: [ProjectContractStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractStatusCondition
+  ): ProjectContractStatusesConnection!
+
+  """Reads and enables pagination through a set of `ProjectWorkStatus`."""
+  projectWorkStatuses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkStatus`."""
+    orderBy: [ProjectWorkStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkStatusCondition
+  ): ProjectWorkStatusesConnection!
+}
+
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+type ProjectWorkTypeMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectWorkTypeMasterId: UUID!
+  projectTypeName: String!
+  projectStopFlg: Boolean!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `Project`."""
+  projectsByProjectTypeId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
+
+  """
+  Reads and enables pagination through a set of `ProjectWorkStatusSeqMaster`.
+  """
+  projectWorkStatusSeqMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkStatusSeqMaster`."""
+    orderBy: [ProjectWorkStatusSeqMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkStatusSeqMasterCondition
+  ): ProjectWorkStatusSeqMastersConnection!
 }
 
 """A connection to a list of `Project` values."""
@@ -77,14 +950,6 @@ type ProjectsConnection {
 
   """The count of *all* `Project` you could get from the connection."""
   totalCount: Int!
-}
-
-type Project implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-  id: String!
 }
 
 """A `Project` edge in the connection."""
@@ -117,8 +982,34 @@ type PageInfo {
 """Methods to use when ordering `Project`."""
 enum ProjectsOrderBy {
   NATURAL
-  ID_ASC
-  ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  PROJECT_TYPE_ID_ASC
+  PROJECT_TYPE_ID_DESC
+  PROJECT_NAME_ASC
+  PROJECT_NAME_DESC
+  CONSTRUCTION_START_ASC
+  CONSTRUCTION_START_DESC
+  CONSTRUCTION_STOP_ASC
+  CONSTRUCTION_STOP_DESC
+  BUDGET_ASC
+  BUDGET_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  CUSTOMER_ID_ASC
+  CUSTOMER_ID_DESC
+  PROJECT_CONTRACT_TYPE_ID_ASC
+  PROJECT_CONTRACT_TYPE_ID_DESC
+  PROJECT_PLACE_ADDRESS_ASC
+  PROJECT_PLACE_ADDRESS_DESC
+  TOTAL_MAN_HOUR_ASC
+  TOTAL_MAN_HOUR_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  CREATED_USER_ID_ASC
+  CREATED_USER_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -127,6 +1018,1131 @@ enum ProjectsOrderBy {
 A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’
 """
 input ProjectCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: String
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """Checks for equality with the object’s `projectTypeId` field."""
+  projectTypeId: UUID
+
+  """Checks for equality with the object’s `projectName` field."""
+  projectName: String
+
+  """Checks for equality with the object’s `constructionStart` field."""
+  constructionStart: Datetime
+
+  """Checks for equality with the object’s `constructionStop` field."""
+  constructionStop: Datetime
+
+  """Checks for equality with the object’s `budget` field."""
+  budget: BigFloat
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+
+  """Checks for equality with the object’s `customerId` field."""
+  customerId: UUID
+
+  """Checks for equality with the object’s `projectContractTypeId` field."""
+  projectContractTypeId: UUID
+
+  """Checks for equality with the object’s `projectPlaceAddress` field."""
+  projectPlaceAddress: String
+
+  """Checks for equality with the object’s `totalManHour` field."""
+  totalManHour: BigFloat
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `createdUserId` field."""
+  createdUserId: UUID
+}
+
+"""A connection to a list of `ProjectWorkStatusSeqMaster` values."""
+type ProjectWorkStatusSeqMastersConnection {
+  """A list of `ProjectWorkStatusSeqMaster` objects."""
+  nodes: [ProjectWorkStatusSeqMaster!]!
+
+  """
+  A list of edges which contains the `ProjectWorkStatusSeqMaster` and cursor to aid in pagination.
+  """
+  edges: [ProjectWorkStatusSeqMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectWorkStatusSeqMaster` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectWorkStatusSeqMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectStatusSeqMasterId: UUID!
+  projectWorkTypeMasterId: UUID!
+  statusName: String!
+  statusSeqNumber: Int!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `ProjectWorkTypeMaster` that is related to this `ProjectWorkStatusSeqMaster`.
+  """
+  projectWorkTypeMaster: ProjectWorkTypeMaster
+
+  """Reads and enables pagination through a set of `ProjectWorkStatus`."""
+  projectWorkStatusesByProjectStatusSeqMasterId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectWorkStatus`."""
+    orderBy: [ProjectWorkStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectWorkStatusCondition
+  ): ProjectWorkStatusesConnection!
+}
+
+"""A connection to a list of `ProjectWorkStatus` values."""
+type ProjectWorkStatusesConnection {
+  """A list of `ProjectWorkStatus` objects."""
+  nodes: [ProjectWorkStatus!]!
+
+  """
+  A list of edges which contains the `ProjectWorkStatus` and cursor to aid in pagination.
+  """
+  edges: [ProjectWorkStatusesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectWorkStatus` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectWorkStatus implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectWorkStatusId: UUID!
+  isProjectStop: Boolean!
+  projectId: UUID!
+  projectStatusSeqMasterId: UUID!
+  statusName: String!
+  statusReason: String!
+  statusTimestamp: Datetime!
+
+  """Reads a single `Project` that is related to this `ProjectWorkStatus`."""
+  project: Project
+
+  """
+  Reads a single `ProjectWorkStatusSeqMaster` that is related to this `ProjectWorkStatus`.
+  """
+  projectStatusSeqMaster: ProjectWorkStatusSeqMaster
+}
+
+"""A `ProjectWorkStatus` edge in the connection."""
+type ProjectWorkStatusesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectWorkStatus` at the end of the edge."""
+  node: ProjectWorkStatus!
+}
+
+"""Methods to use when ordering `ProjectWorkStatus`."""
+enum ProjectWorkStatusesOrderBy {
+  NATURAL
+  PROJECT_WORK_STATUS_ID_ASC
+  PROJECT_WORK_STATUS_ID_DESC
+  IS_PROJECT_STOP_ASC
+  IS_PROJECT_STOP_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  PROJECT_STATUS_SEQ_MASTER_ID_ASC
+  PROJECT_STATUS_SEQ_MASTER_ID_DESC
+  STATUS_NAME_ASC
+  STATUS_NAME_DESC
+  STATUS_REASON_ASC
+  STATUS_REASON_DESC
+  STATUS_TIMESTAMP_ASC
+  STATUS_TIMESTAMP_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectWorkStatus` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ProjectWorkStatusCondition {
+  """Checks for equality with the object’s `projectWorkStatusId` field."""
+  projectWorkStatusId: UUID
+
+  """Checks for equality with the object’s `isProjectStop` field."""
+  isProjectStop: Boolean
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """
+  Checks for equality with the object’s `projectStatusSeqMasterId` field.
+  """
+  projectStatusSeqMasterId: UUID
+
+  """Checks for equality with the object’s `statusName` field."""
+  statusName: String
+
+  """Checks for equality with the object’s `statusReason` field."""
+  statusReason: String
+
+  """Checks for equality with the object’s `statusTimestamp` field."""
+  statusTimestamp: Datetime
+}
+
+"""A `ProjectWorkStatusSeqMaster` edge in the connection."""
+type ProjectWorkStatusSeqMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectWorkStatusSeqMaster` at the end of the edge."""
+  node: ProjectWorkStatusSeqMaster!
+}
+
+"""Methods to use when ordering `ProjectWorkStatusSeqMaster`."""
+enum ProjectWorkStatusSeqMastersOrderBy {
+  NATURAL
+  PROJECT_STATUS_SEQ_MASTER_ID_ASC
+  PROJECT_STATUS_SEQ_MASTER_ID_DESC
+  PROJECT_WORK_TYPE_MASTER_ID_ASC
+  PROJECT_WORK_TYPE_MASTER_ID_DESC
+  STATUS_NAME_ASC
+  STATUS_NAME_DESC
+  STATUS_SEQ_NUMBER_ASC
+  STATUS_SEQ_NUMBER_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectWorkStatusSeqMaster` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectWorkStatusSeqMasterCondition {
+  """
+  Checks for equality with the object’s `projectStatusSeqMasterId` field.
+  """
+  projectStatusSeqMasterId: UUID
+
+  """Checks for equality with the object’s `projectWorkTypeMasterId` field."""
+  projectWorkTypeMasterId: UUID
+
+  """Checks for equality with the object’s `statusName` field."""
+  statusName: String
+
+  """Checks for equality with the object’s `statusSeqNumber` field."""
+  statusSeqNumber: Int
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+type ProjectContractTypeMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectContractTypeMasterId: UUID!
+  projectContractTypeName: String!
+  projectStopFlg: Boolean!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `Project`."""
+  projectsByProjectContractTypeId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Project`."""
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
+
+  """
+  Reads and enables pagination through a set of `ProjectContractStatusSeqMaster`.
+  """
+  projectContractStatusSeqMasters(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractStatusSeqMaster`."""
+    orderBy: [ProjectContractStatusSeqMastersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractStatusSeqMasterCondition
+  ): ProjectContractStatusSeqMastersConnection!
+}
+
+"""A connection to a list of `ProjectContractStatusSeqMaster` values."""
+type ProjectContractStatusSeqMastersConnection {
+  """A list of `ProjectContractStatusSeqMaster` objects."""
+  nodes: [ProjectContractStatusSeqMaster!]!
+
+  """
+  A list of edges which contains the `ProjectContractStatusSeqMaster` and cursor to aid in pagination.
+  """
+  edges: [ProjectContractStatusSeqMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectContractStatusSeqMaster` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectContractStatusSeqMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectContractStatusSeqMasterId: UUID!
+  statusName: String!
+  statusSeqNumber: Int!
+  projectContractTypeMasterId: UUID!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `ProjectContractTypeMaster` that is related to this `ProjectContractStatusSeqMaster`.
+  """
+  projectContractTypeMaster: ProjectContractTypeMaster
+
+  """Reads and enables pagination through a set of `ProjectContractStatus`."""
+  projectContractStatuses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectContractStatus`."""
+    orderBy: [ProjectContractStatusesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectContractStatusCondition
+  ): ProjectContractStatusesConnection!
+}
+
+"""A connection to a list of `ProjectContractStatus` values."""
+type ProjectContractStatusesConnection {
+  """A list of `ProjectContractStatus` objects."""
+  nodes: [ProjectContractStatus!]!
+
+  """
+  A list of edges which contains the `ProjectContractStatus` and cursor to aid in pagination.
+  """
+  edges: [ProjectContractStatusesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectContractStatus` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectContractStatus implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectContractStatusId: UUID!
+  projectId: UUID!
+  projectContractStatusSeqMasterId: UUID!
+  statusName: String!
+  statusReason: String!
+  isProjectStop: Boolean!
+  statusTimestamp: Datetime!
+
+  """
+  Reads a single `Project` that is related to this `ProjectContractStatus`.
+  """
+  project: Project
+
+  """
+  Reads a single `ProjectContractStatusSeqMaster` that is related to this `ProjectContractStatus`.
+  """
+  projectContractStatusSeqMaster: ProjectContractStatusSeqMaster
+}
+
+"""A `ProjectContractStatus` edge in the connection."""
+type ProjectContractStatusesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectContractStatus` at the end of the edge."""
+  node: ProjectContractStatus!
+}
+
+"""Methods to use when ordering `ProjectContractStatus`."""
+enum ProjectContractStatusesOrderBy {
+  NATURAL
+  PROJECT_CONTRACT_STATUS_ID_ASC
+  PROJECT_CONTRACT_STATUS_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  PROJECT_CONTRACT_STATUS_SEQ_MASTER_ID_ASC
+  PROJECT_CONTRACT_STATUS_SEQ_MASTER_ID_DESC
+  STATUS_NAME_ASC
+  STATUS_NAME_DESC
+  STATUS_REASON_ASC
+  STATUS_REASON_DESC
+  IS_PROJECT_STOP_ASC
+  IS_PROJECT_STOP_DESC
+  STATUS_TIMESTAMP_ASC
+  STATUS_TIMESTAMP_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectContractStatus` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectContractStatusCondition {
+  """Checks for equality with the object’s `projectContractStatusId` field."""
+  projectContractStatusId: UUID
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """
+  Checks for equality with the object’s `projectContractStatusSeqMasterId` field.
+  """
+  projectContractStatusSeqMasterId: UUID
+
+  """Checks for equality with the object’s `statusName` field."""
+  statusName: String
+
+  """Checks for equality with the object’s `statusReason` field."""
+  statusReason: String
+
+  """Checks for equality with the object’s `isProjectStop` field."""
+  isProjectStop: Boolean
+
+  """Checks for equality with the object’s `statusTimestamp` field."""
+  statusTimestamp: Datetime
+}
+
+"""A `ProjectContractStatusSeqMaster` edge in the connection."""
+type ProjectContractStatusSeqMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectContractStatusSeqMaster` at the end of the edge."""
+  node: ProjectContractStatusSeqMaster!
+}
+
+"""Methods to use when ordering `ProjectContractStatusSeqMaster`."""
+enum ProjectContractStatusSeqMastersOrderBy {
+  NATURAL
+  PROJECT_CONTRACT_STATUS_SEQ_MASTER_ID_ASC
+  PROJECT_CONTRACT_STATUS_SEQ_MASTER_ID_DESC
+  STATUS_NAME_ASC
+  STATUS_NAME_DESC
+  STATUS_SEQ_NUMBER_ASC
+  STATUS_SEQ_NUMBER_DESC
+  PROJECT_CONTRACT_TYPE_MASTER_ID_ASC
+  PROJECT_CONTRACT_TYPE_MASTER_ID_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectContractStatusSeqMaster` object types.
+All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectContractStatusSeqMasterCondition {
+  """
+  Checks for equality with the object’s `projectContractStatusSeqMasterId` field.
+  """
+  projectContractStatusSeqMasterId: UUID
+
+  """Checks for equality with the object’s `statusName` field."""
+  statusName: String
+
+  """Checks for equality with the object’s `statusSeqNumber` field."""
+  statusSeqNumber: Int
+
+  """
+  Checks for equality with the object’s `projectContractTypeMasterId` field.
+  """
+  projectContractTypeMasterId: UUID
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `ProjectMember` values."""
+type ProjectMembersConnection {
+  """A list of `ProjectMember` objects."""
+  nodes: [ProjectMember!]!
+
+  """
+  A list of edges which contains the `ProjectMember` and cursor to aid in pagination.
+  """
+  edges: [ProjectMembersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `ProjectMember` you could get from the connection."""
+  totalCount: Int!
+}
+
+type ProjectMember implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectBindId: UUID!
+  projectId: UUID!
+  projectMemberId: UUID!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads a single `Project` that is related to this `ProjectMember`."""
+  project: Project
+}
+
+"""A `ProjectMember` edge in the connection."""
+type ProjectMembersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectMember` at the end of the edge."""
+  node: ProjectMember!
+}
+
+"""Methods to use when ordering `ProjectMember`."""
+enum ProjectMembersOrderBy {
+  NATURAL
+  PROJECT_BIND_ID_ASC
+  PROJECT_BIND_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  PROJECT_MEMBER_ID_ASC
+  PROJECT_MEMBER_ID_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectMember` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ProjectMemberCondition {
+  """Checks for equality with the object’s `projectBindId` field."""
+  projectBindId: UUID
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """Checks for equality with the object’s `projectMemberId` field."""
+  projectMemberId: UUID
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `ProjectMaterial` values."""
+type ProjectMaterialsConnection {
+  """A list of `ProjectMaterial` objects."""
+  nodes: [ProjectMaterial!]!
+
+  """
+  A list of edges which contains the `ProjectMaterial` and cursor to aid in pagination.
+  """
+  edges: [ProjectMaterialsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectMaterial` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ProjectMaterial implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  projectMaterialId: UUID!
+  projectId: UUID!
+  materialId: UUID!
+
+  """Reads a single `Project` that is related to this `ProjectMaterial`."""
+  project: Project
+
+  """
+  Reads a single `MaterialMaster` that is related to this `ProjectMaterial`.
+  """
+  material: MaterialMaster
+}
+
+type MaterialMaster implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  materialId: UUID!
+  materialName: String!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `ProjectMaterial`."""
+  projectMaterialsByMaterialId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `ProjectMaterial`."""
+    orderBy: [ProjectMaterialsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMaterialCondition
+  ): ProjectMaterialsConnection!
+}
+
+"""Methods to use when ordering `ProjectMaterial`."""
+enum ProjectMaterialsOrderBy {
+  NATURAL
+  PROJECT_MATERIAL_ID_ASC
+  PROJECT_MATERIAL_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  MATERIAL_ID_ASC
+  MATERIAL_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectMaterial` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ProjectMaterialCondition {
+  """Checks for equality with the object’s `projectMaterialId` field."""
+  projectMaterialId: UUID
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """Checks for equality with the object’s `materialId` field."""
+  materialId: UUID
+}
+
+"""A `ProjectMaterial` edge in the connection."""
+type ProjectMaterialsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectMaterial` at the end of the edge."""
+  node: ProjectMaterial!
+}
+
+"""A connection to a list of `ConstructionWord` values."""
+type ConstructionWordsConnection {
+  """A list of `ConstructionWord` objects."""
+  nodes: [ConstructionWord!]!
+
+  """
+  A list of edges which contains the `ConstructionWord` and cursor to aid in pagination.
+  """
+  edges: [ConstructionWordsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ConstructionWord` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type ConstructionWord implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  constructionWordId: UUID!
+  projectId: UUID!
+  constructionWordName: String!
+  constructionPlace: String!
+  constructionArea: BigFloat!
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads a single `Project` that is related to this `ConstructionWord`."""
+  project: Project
+}
+
+"""A `ConstructionWord` edge in the connection."""
+type ConstructionWordsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ConstructionWord` at the end of the edge."""
+  node: ConstructionWord!
+}
+
+"""Methods to use when ordering `ConstructionWord`."""
+enum ConstructionWordsOrderBy {
+  NATURAL
+  CONSTRUCTION_WORD_ID_ASC
+  CONSTRUCTION_WORD_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  CONSTRUCTION_WORD_NAME_ASC
+  CONSTRUCTION_WORD_NAME_DESC
+  CONSTRUCTION_PLACE_ASC
+  CONSTRUCTION_PLACE_DESC
+  CONSTRUCTION_AREA_ASC
+  CONSTRUCTION_AREA_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ConstructionWord` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input ConstructionWordCondition {
+  """Checks for equality with the object’s `constructionWordId` field."""
+  constructionWordId: UUID
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """Checks for equality with the object’s `constructionWordName` field."""
+  constructionWordName: String
+
+  """Checks for equality with the object’s `constructionPlace` field."""
+  constructionPlace: String
+
+  """Checks for equality with the object’s `constructionArea` field."""
+  constructionArea: BigFloat
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""Methods to use when ordering `ProjectConstructionType`."""
+enum ProjectConstructionTypesOrderBy {
+  NATURAL
+  PROJECT_CONSTRUCTION_TYPE_ID_ASC
+  PROJECT_CONSTRUCTION_TYPE_ID_DESC
+  CONSTRUCTION_TYPE_ID_ASC
+  CONSTRUCTION_TYPE_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectConstructionType` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectConstructionTypeCondition {
+  """
+  Checks for equality with the object’s `projectConstructionTypeId` field.
+  """
+  projectConstructionTypeId: UUID
+
+  """Checks for equality with the object’s `constructionTypeId` field."""
+  constructionTypeId: UUID
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: UUID
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A `ProjectConstructionType` edge in the connection."""
+type ProjectConstructionTypesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectConstructionType` at the end of the edge."""
+  node: ProjectConstructionType!
+}
+
+"""A `ConstructionTypeMaster` edge in the connection."""
+type ConstructionTypeMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ConstructionTypeMaster` at the end of the edge."""
+  node: ConstructionTypeMaster!
+}
+
+"""Methods to use when ordering `ConstructionTypeMaster`."""
+enum ConstructionTypeMastersOrderBy {
+  NATURAL
+  CONSTRUCTION_TYPE_ID_ASC
+  CONSTRUCTION_TYPE_ID_DESC
+  CONSTRUCTION_TYPE_NAME_ASC
+  CONSTRUCTION_TYPE_NAME_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ConstructionTypeMaster` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input ConstructionTypeMasterCondition {
+  """Checks for equality with the object’s `constructionTypeId` field."""
+  constructionTypeId: UUID
+
+  """Checks for equality with the object’s `constructionTypeName` field."""
+  constructionTypeName: String
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `MaterialMaster` values."""
+type MaterialMastersConnection {
+  """A list of `MaterialMaster` objects."""
+  nodes: [MaterialMaster!]!
+
+  """
+  A list of edges which contains the `MaterialMaster` and cursor to aid in pagination.
+  """
+  edges: [MaterialMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `MaterialMaster` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `MaterialMaster` edge in the connection."""
+type MaterialMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `MaterialMaster` at the end of the edge."""
+  node: MaterialMaster!
+}
+
+"""Methods to use when ordering `MaterialMaster`."""
+enum MaterialMastersOrderBy {
+  NATURAL
+  MATERIAL_ID_ASC
+  MATERIAL_ID_DESC
+  MATERIAL_NAME_ASC
+  MATERIAL_NAME_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `MaterialMaster` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input MaterialMasterCondition {
+  """Checks for equality with the object’s `materialId` field."""
+  materialId: UUID
+
+  """Checks for equality with the object’s `materialName` field."""
+  materialName: String
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `ProjectContractTypeMaster` values."""
+type ProjectContractTypeMastersConnection {
+  """A list of `ProjectContractTypeMaster` objects."""
+  nodes: [ProjectContractTypeMaster!]!
+
+  """
+  A list of edges which contains the `ProjectContractTypeMaster` and cursor to aid in pagination.
+  """
+  edges: [ProjectContractTypeMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectContractTypeMaster` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `ProjectContractTypeMaster` edge in the connection."""
+type ProjectContractTypeMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectContractTypeMaster` at the end of the edge."""
+  node: ProjectContractTypeMaster!
+}
+
+"""Methods to use when ordering `ProjectContractTypeMaster`."""
+enum ProjectContractTypeMastersOrderBy {
+  NATURAL
+  PROJECT_CONTRACT_TYPE_MASTER_ID_ASC
+  PROJECT_CONTRACT_TYPE_MASTER_ID_DESC
+  PROJECT_CONTRACT_TYPE_NAME_ASC
+  PROJECT_CONTRACT_TYPE_NAME_DESC
+  PROJECT_STOP_FLG_ASC
+  PROJECT_STOP_FLG_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectContractTypeMaster` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectContractTypeMasterCondition {
+  """
+  Checks for equality with the object’s `projectContractTypeMasterId` field.
+  """
+  projectContractTypeMasterId: UUID
+
+  """Checks for equality with the object’s `projectContractTypeName` field."""
+  projectContractTypeName: String
+
+  """Checks for equality with the object’s `projectStopFlg` field."""
+  projectStopFlg: Boolean
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `ProjectWorkTypeMaster` values."""
+type ProjectWorkTypeMastersConnection {
+  """A list of `ProjectWorkTypeMaster` objects."""
+  nodes: [ProjectWorkTypeMaster!]!
+
+  """
+  A list of edges which contains the `ProjectWorkTypeMaster` and cursor to aid in pagination.
+  """
+  edges: [ProjectWorkTypeMastersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `ProjectWorkTypeMaster` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `ProjectWorkTypeMaster` edge in the connection."""
+type ProjectWorkTypeMastersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ProjectWorkTypeMaster` at the end of the edge."""
+  node: ProjectWorkTypeMaster!
+}
+
+"""Methods to use when ordering `ProjectWorkTypeMaster`."""
+enum ProjectWorkTypeMastersOrderBy {
+  NATURAL
+  PROJECT_WORK_TYPE_MASTER_ID_ASC
+  PROJECT_WORK_TYPE_MASTER_ID_DESC
+  PROJECT_TYPE_NAME_ASC
+  PROJECT_TYPE_NAME_DESC
+  PROJECT_STOP_FLG_ASC
+  PROJECT_STOP_FLG_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `ProjectWorkTypeMaster` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectWorkTypeMasterCondition {
+  """Checks for equality with the object’s `projectWorkTypeMasterId` field."""
+  projectWorkTypeMasterId: UUID
+
+  """Checks for equality with the object’s `projectTypeName` field."""
+  projectTypeName: String
+
+  """Checks for equality with the object’s `projectStopFlg` field."""
+  projectStopFlg: Boolean
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
 }

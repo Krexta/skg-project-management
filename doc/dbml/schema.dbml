@@ -2,6 +2,147 @@
 //// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 //// ------------------------------------------------------
 
-Table Project {
-  id String [pk]
+Table project {
+  projectId String [pk]
+  projectTypeId String [not null]
+  projectName String [not null]
+  constructionStart DateTime [default: `now()`, not null]
+  constructionStop DateTime [default: `now()`, not null]
+  budget Decimal
+  description String
+  customerId String [not null]
+  projectContractTypeId String [not null]
+  projectPlaceAddress String
+  totalManHour Decimal
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+  createdUserId String [not null]
 }
+
+Table project_member {
+  projectBindId String [pk]
+  projectId String [not null]
+  projectMemberId String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table material_master {
+  materialId String [pk]
+  materialName String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_material {
+  projectMaterialId String [pk]
+  projectId String [not null]
+  materialId String [not null]
+}
+
+Table construction_word {
+  constructionWordId String [pk]
+  projectId String [not null]
+  constructionWordName String [not null]
+  constructionPlace String [not null]
+  constructionArea Decimal [not null, default: 0]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table construction_type_master {
+  constructionTypeId String [pk]
+  constructionTypeName String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_construction_type {
+  projectConstructionTypeId String [pk]
+  constructionTypeId String [not null]
+  projectId String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_contract_status {
+  projectContractStatusId String [pk]
+  projectId String [not null]
+  projectContractStatusSeqMasterId String [not null]
+  statusName String [not null]
+  statusReason String [not null]
+  isProjectStop Boolean [not null, default: false]
+  statusTimestamp DateTime [not null]
+}
+
+Table project_contract_type_master {
+  projectContractTypeMasterId String [pk]
+  projectContractTypeName String [not null]
+  projectStopFlg Boolean [not null, default: false]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_contract_status_seq_master {
+  projectContractStatusSeqMasterId String [pk]
+  statusName String [not null]
+  statusSeqNumber Int [not null]
+  projectContractTypeMasterId String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_work_type_master {
+  projectWorkTypeMasterId String [pk]
+  projectTypeName String [not null]
+  projectStopFlg Boolean [not null, default: false]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Table project_work_status {
+  projectWorkStatusId String [pk]
+  isProjectStop Boolean [not null, default: false]
+  projectId String [not null]
+  projectStatusSeqMasterId String [not null]
+  statusName String [not null]
+  statusReason String [not null]
+  statusTimestamp DateTime [default: `now()`, not null]
+}
+
+Table project_work_status_seq_master {
+  projectStatusSeqMasterId String [pk]
+  projectWorkTypeMasterId String [not null]
+  statusName String [not null]
+  statusSeqNumber Int [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [default: `now()`, not null]
+}
+
+Ref: project.projectTypeId > project_work_type_master.projectWorkTypeMasterId [delete: Cascade]
+
+Ref: project.projectContractTypeId > project_contract_type_master.projectContractTypeMasterId [delete: Cascade]
+
+Ref: project_member.projectId > project.projectId [delete: Cascade]
+
+Ref: project_material.materialId > material_master.materialId [delete: Cascade]
+
+Ref: project_material.projectId > project.projectId [delete: Cascade]
+
+Ref: construction_word.projectId > project.projectId [delete: Cascade]
+
+Ref: project_construction_type.projectId > project.projectId [delete: Cascade]
+
+Ref: project_construction_type.constructionTypeId > construction_type_master.constructionTypeId [delete: Cascade]
+
+Ref: project_contract_status.projectId > project.projectId [delete: Cascade]
+
+Ref: project_contract_status.projectContractStatusSeqMasterId > project_contract_status_seq_master.projectContractStatusSeqMasterId [delete: Cascade]
+
+Ref: project_contract_status_seq_master.projectContractTypeMasterId > project_contract_type_master.projectContractTypeMasterId [delete: Cascade]
+
+Ref: project_work_status.projectId > project.projectId [delete: Cascade]
+
+Ref: project_work_status.projectStatusSeqMasterId > project_work_status_seq_master.projectStatusSeqMasterId [delete: Cascade]
+
+Ref: project_work_status_seq_master.projectWorkTypeMasterId > project_work_type_master.projectWorkTypeMasterId [delete: Cascade]

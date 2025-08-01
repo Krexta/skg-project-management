@@ -20,7 +20,187 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 案件
 model Project {
-  id String @id
+  projectId             String   @id @map("project_id") @db.Uuid
+  projectTypeId         String   @map("project_type_id") @db.Uuid
+  projectName           String   @map("project_name") @db.VarChar(256)
+  constructionStart     DateTime @default(now()) @map("construction_start")
+  constructionStop      DateTime @default(now()) @map("construction_stop")
+  budget                Decimal? @db.Decimal(64, 3)
+  description           String?  @db.Text()
+  customerId            String   @map("customer_id") @db.Uuid
+  projectContractTypeId String   @map("project_contract_type_id") @db.Uuid
+  projectPlaceAddress   String?  @map("project_place_address") @db.VarChar(256)
+  totalManHour          Decimal? @map("total_man_hour") @db.Decimal(9, 2)
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @default(now()) @updatedAt @map("updated_at")
+  createdUserId         String   @map("created_user_id") @db.Uuid
+
+  projectMaterial           ProjectMaterial[]
+  projectWorkStatus         ProjectWorkStatus[]
+  projectContractStatus     ProjectContractStatus[]
+  projectMember             ProjectMember[]
+  projectConstructionType   ProjectConstructionType[]
+  constructionWord          ConstructionWords[]
+  projectWorkTypeMaster     ProjectWorkTypeMaster     @relation(fields: [projectTypeId], references: [projectWorkTypeMasterId], onDelete: Cascade)
+  projectContractTypeMaster ProjectContractTypeMaster @relation(fields: [projectContractTypeId], references: [projectContractTypeMasterId], onDelete: Cascade)
+
+  @@map("project")
+}
+
+model ProjectMember {
+  projectBindId   String   @id @map("project_bind_id") @db.Uuid
+  projectId       String   @map("project_id") @db.Uuid
+  projectMemberId String   @map("project_member_id") @db.Uuid
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @default(now()) @updatedAt @map("updated_at")
+
+  project Project @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+
+  @@map("project_member")
+}
+
+model MaterialMaster {
+  materialId   String   @id @map("material_id") @db.Uuid
+  materialName String   @map("material_name") @db.VarChar(256)
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at")
+
+  projectMaterial ProjectMaterial[]
+
+  @@map("material_master")
+}
+
+model ProjectMaterial {
+  projectMaterialId String @id @map("project_material_id") @db.Uuid
+  projectId         String @map("project_id") @db.Uuid
+  materialId        String @map("material_id") @db.Uuid
+
+  materialMaster MaterialMaster @relation(fields: [materialId], references: [materialId], onDelete: Cascade)
+  project        Project        @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+
+  @@map("project_material")
+}
+
+model ConstructionWords {
+  constructionWordId   String  @id @map("construction_word_id") @db.Uuid
+  projectId            String  @map("project_id") @db.Uuid
+  constructionWordName String  @map("construction_word_name") @db.VarChar(45)
+  constructionPlace    String  @map("construction_place") @db.VarChar(245)
+  constructionArea     Decimal @default(0.0) @map("construction_area") @db.Decimal(12, 3)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  project Project @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+
+  @@map("construction_word")
+}
+
+model ConstructionTypeMaster {
+  constructionTypeId   String   @id @map("construction_type_id") @db.Uuid
+  constructionTypeName String   @map("construction_type_name") @db.VarChar(50)
+  createdAt            DateTime @default(now()) @map("created_at")
+  updatedAt            DateTime @default(now()) @updatedAt @map("updated_at")
+
+  projectConstructionType ProjectConstructionType[]
+
+  @@map("construction_type_master")
+}
+
+model ProjectConstructionType {
+  projectConstructionTypeId String   @id @map("project_construction_type_id") @db.Uuid
+  constructionTypeId        String   @map("construction_type_id") @db.Uuid
+  projectId                 String   @map("project_id") @db.Uuid
+  createdAt                 DateTime @default(now()) @map("created_at")
+  updatedAt                 DateTime @default(now()) @updatedAt @map("updated_at")
+
+  project                Project                @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+  constructionTypeMaster ConstructionTypeMaster @relation(fields: [constructionTypeId], references: [constructionTypeId], onDelete: Cascade)
+
+  @@map("project_construction_type")
+}
+
+model ProjectContractStatus {
+  projectContractStatusId          String   @id @map("project_contract_status_id") @db.Uuid
+  projectId                        String   @map("project_id") @db.Uuid
+  projectContractStatusSeqMasterId String   @map("project_contract_status_seq_master_id") @db.Uuid
+  statusName                       String   @map("status_name") @db.VarChar(45)
+  statusReason                     String   @map("status_reason") @db.Text()
+  isProjectStop                    Boolean  @default(false) @map("is_project_stop")
+  statusTimestamp                  DateTime @updatedAt @map("status_timestamp")
+
+  project                        Project                        @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+  projectContractStatusSeqMaster ProjectContractStatusSeqMaster @relation(fields: [projectContractStatusSeqMasterId], references: [projectContractStatusSeqMasterId], onDelete: Cascade)
+
+  @@map("project_contract_status")
+}
+
+model ProjectContractTypeMaster {
+  projectContractTypeMasterId String   @id @map("project_contract_type_master_id") @db.Uuid
+  projectContractTypeName     String   @map("project_contract_type_name") @db.VarChar(45)
+  projectStopFlg              Boolean  @default(false) @map("project_stop_flg")
+  createdAt                   DateTime @default(now()) @map("created_at")
+  updatedAt                   DateTime @default(now()) @updatedAt @map("updated_at")
+
+  project                        Project[]
+  projectContractStatusSeqMaster ProjectContractStatusSeqMaster[]
+
+  @@map("project_contract_type_master")
+}
+
+model ProjectContractStatusSeqMaster {
+  projectContractStatusSeqMasterId String   @id @map("project_contract_status_seq_master_id") @db.Uuid
+  statusName                       String   @map("status_name") @db.VarChar(45)
+  statusSeqNumber                  Int      @map("status_seq_number")
+  projectContractTypeMasterId      String   @map("project_contract_type_master_id") @db.Uuid
+  createdAt                        DateTime @default(now()) @map("created_at")
+  updatedAt                        DateTime @default(now()) @updatedAt @map("updated_at")
+
+  projectContractStatus     ProjectContractStatus[]
+  projectContractTypeMaster ProjectContractTypeMaster @relation(fields: [projectContractTypeMasterId], references: [projectContractTypeMasterId], onDelete: Cascade)
+
+  @@map("project_contract_status_seq_master")
+}
+
+model ProjectWorkTypeMaster {
+  projectWorkTypeMasterId String   @id @map("project_work_type_master_id") @db.Uuid
+  projectTypeName         String   @map("project_type_name") @db.VarChar(45)
+  projectStopFlg          Boolean  @default(false) @map("project_stop_flg")
+  createdAt               DateTime @default(now()) @map("created_at")
+  updatedAt               DateTime @default(now()) @updatedAt @map("updated_at")
+
+  project                    Project[]
+  projectWorkStatusSeqMaster ProjectWorkStatusSeqMaster[]
+
+  @@map("project_work_type_master")
+}
+
+model ProjectWorkStatus {
+  projectWorkStatusId      String   @id @map("project_work_status_id") @db.Uuid
+  isProjectStop            Boolean  @default(false) @map("is_project_stop")
+  projectId                String   @map("project_id") @db.Uuid
+  projectStatusSeqMasterId String   @map("project_status_seq_master_id") @db.Uuid
+  statusName               String   @map("status_name") @db.VarChar(45)
+  statusReason             String   @map("status_reason") @db.Text()
+  statusTimestamp          DateTime @default(now()) @updatedAt @map("status_timestamp")
+
+  project                    Project                    @relation(fields: [projectId], references: [projectId], onDelete: Cascade)
+  projectWorkStatusSeqMaster ProjectWorkStatusSeqMaster @relation(fields: [projectStatusSeqMasterId], references: [projectStatusSeqMasterId], onDelete: Cascade)
+
+  @@map("project_work_status")
+}
+
+model ProjectWorkStatusSeqMaster {
+  projectStatusSeqMasterId String   @id @map("project_status_seq_master_id") @db.Uuid
+  projectWorkTypeMasterId  String   @map("project_work_type_master_id") @db.Uuid
+  statusName               String   @map("status_name") @db.VarChar(45)
+  statusSeqNumber          Int      @map("status_seq_number")
+  createdAt                DateTime @default(now()) @map("created_at")
+  updatedAt                DateTime @default(now()) @updatedAt @map("updated_at")
+
+  projectWorkStatus     ProjectWorkStatus[]
+  projectWorkTypeMaster ProjectWorkTypeMaster @relation(fields: [projectWorkTypeMasterId], references: [projectWorkTypeMasterId], onDelete: Cascade)
+
+  @@map("project_work_status_seq_master")
 }
